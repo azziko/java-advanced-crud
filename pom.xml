@@ -12,7 +12,7 @@
 	<artifactId>crud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>crud</name>
-	<description>CRUD book API for Azul </description>
+	<description>CRUD poems API for the semester project NPRG021</description>
 	<url/>
 	<licenses>
 		<license/>
