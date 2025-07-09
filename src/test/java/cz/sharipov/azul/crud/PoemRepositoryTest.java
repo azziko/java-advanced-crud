@@ -17,13 +17,14 @@ import cz.sharipov.azul.crud.repository.PoemRepository;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 public class PoemRepositoryTest {
-    Poem poem = new Poem();
+    Poem poem;
 
     @Autowired
     private PoemRepository poemRepository;
 
     @BeforeEach
     void setUp() {
+        poem = new Poem();
         poem.setTitle("title");
         poem.setAuthor("author");
         poem.setGenre("genre");
