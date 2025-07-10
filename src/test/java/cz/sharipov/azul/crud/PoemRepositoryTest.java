@@ -20,7 +20,7 @@ public class PoemRepositoryTest {
     Poem poem;
 
     @Autowired
-    private PoemRepository poemRepository;
+    private PoemRepository poemRepo;
 
     @BeforeEach
     void setUp() {
@@ -32,46 +32,46 @@ public class PoemRepositoryTest {
     }
 
     @Test
-    public void testSavePoem() {
+    void testSavePoem() {
         poem.setTitle("some different title");
 
-        Poem savedPoem = poemRepository.save(poem);
+        Poem savedPoem = poemRepo.save(poem);
         assertEquals("some different title", savedPoem.getTitle());
     }
 
     @Test
-    public void testFindByAuthor() {
+    void testFindByAuthor() {
         poem.setAuthor("John Smith");
 
-        poemRepository.save(poem);
-        Page<Poem> res = poemRepository.findByAuthor("Smith", PageRequest.of(0, 5));
+        poemRepo.save(poem);
+        Page<Poem> res = poemRepo.findByAuthor("Smith", PageRequest.of(0, 5));
         assertEquals(1, res.getTotalElements());
     }
 
     @Test
-    public void testFindByTitle() {
+    void testFindByTitle() {
         poem.setTitle("Swan Song");
 
-        poemRepository.save(poem);
-        Page<Poem> res = poemRepository.findByTitle("Song", PageRequest.of(0, 5));
+        poemRepo.save(poem);
+        Page<Poem> res = poemRepo.findByTitle("Song", PageRequest.of(0, 5));
         assertEquals(1, res.getTotalElements());
     }
 
     @Test
-    public void testFindByGenre() {
+    void testFindByGenre() {
         poem.setTitle("Horror");
 
-        poemRepository.save(poem);
-        Page<Poem> res = poemRepository.findByGenre("Horror", PageRequest.of(0, 5));
+        poemRepo.save(poem);
+        Page<Poem> res = poemRepo.findByGenre("Horror", PageRequest.of(0, 5));
         assertEquals(1, res.getTotalElements());
     }
 
     @Test
-    public void testFindByContent() {
+    void testFindByContent() {
         poem.setContent("lorem ipsun");
 
-        poemRepository.save(poem);
-        Page<Poem> res = poemRepository.findByContent("ipsun", PageRequest.of(0, 5));
+        poemRepo.save(poem);
+        Page<Poem> res = poemRepo.findByContent("ipsun", PageRequest.of(0, 5));
         assertEquals(1, res.getTotalElements());
     }
 }
