@@ -65,13 +65,24 @@ h1 {
     width: 50vw;
 }
 
-.poem h2 {
+.poem-main {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.poem h2, .poem-main h2 {
     color: var(--peach);
 }
 
 .poem-header {
     display: flex;
     flex-direction: column;
+}
+
+.poem-main .poem-header {
+    align-items: center;
+    padding: 30px 0;
 }
 
 .poem-header p {
@@ -87,13 +98,29 @@ h1 {
     width: 100%;
 }
 
+.poem-main .poem-bottom {
+    justify-content: center;
+    padding: 30px 0;
+}
+
 .poem-bottom p {
     color: var(--dark-beige);
 }
 
-.poem-body {
+.poem-body, .poem-main-body {
     width: 100%;
     color: rgb(135, 135, 135);
+}
+
+.poem-main-body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.poem-main-body p {
+    width: 70%;
+    text-align: center;
 }
 
 .poem-body p {

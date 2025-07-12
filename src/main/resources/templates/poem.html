@@ -7,12 +7,12 @@
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
     <div class="container">
-        <div th:each="poem : ${poems}" class="poem">
+        <div class="poem-main">
             <div class="poem-header">
-                <a href="#" th:href="@{/poem/{id}/(id=${poem.id})}"><h2 th:text="${poem.title} ?: 'No title'"></h2></a>
+                <h2 th:text="${poem.title} ?: 'No title'"></h2>
                 <p><strong>Genre:</strong> <span th:text="${poem.genre} ?: 'No genre'"></span></p>
             </div>
-            <div class="poem-body">
+            <div class="poem-main-body">
                 <p th:text="${poem.content} ?: 'Content is missing'"></p>
             </div>
             <div class="poem-bottom">
