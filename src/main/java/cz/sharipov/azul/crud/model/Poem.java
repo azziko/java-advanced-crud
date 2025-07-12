@@ -23,7 +23,7 @@ public class Poem {
     private String genre;
 
     @Lob
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
     @Column(name = "created_at", updatable = false)
