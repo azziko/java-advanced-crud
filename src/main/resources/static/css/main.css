@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Esteban&display=swap');
+
+:root {
+    --creamy: #FAF7F3;
+    --beige: #F0E4D3;
+    --dark-beige: #DCC5B2;
+    --peach: #D9A299;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Esteban', sans-serif;
+    background-color: var(--creamy);
+}
+
+a {
+    text-decoration: underline;  
+    color: var(--peach);
+}
+
+header {
+    background-color: var(--beige);
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+h1 {
+    color: var(--peach);
+    font-style: italic;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Poems */
+.poem {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.poem h2 {
+    color: var(--peach);
+}
+
+.poem-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.poem-header p {
+    color: var(--peach);
+    font-style: italic;
+    font-size: 12px;
+}
+
+.poem-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.poem-bottom p {
+    color: var(--dark-beige);
+}
+
+.poem-body {
+    width: 100%;
+    color: rgb(135, 135, 135);
+}
+
+.poem-body p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

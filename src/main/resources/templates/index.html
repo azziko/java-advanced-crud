@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Poems CRUD</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <div th:each="poem : ${poems}" class="poem">
+            <div class="poem-header">
+                <h2 th:text="${poem.title} ?: 'No title'"></h2>
+                <p><strong>Genre:</strong> <span th:text="${poem.genre} ?: 'No genre'"></span></p>
+            </div>
+            <div class="poem-body">
+                <p th:text="${poem.content} ?: 'Content is missing'"></p>
+            </div>
+            <div class="poem-bottom">
+                <p><span th:text="${#temporals.format(poem.createdAt, 'dd-MM-yyyy')}">01-01-2024</span></p>
+                <a href="#">View the rest...</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
