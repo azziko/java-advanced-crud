@@ -131,3 +131,32 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* Admin form */
+form {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 2px var(--dark-beige);
+    padding-bottom: 10px;
+    gap: 8px;
+}
+label {
+    color: rgb(135, 135, 135);
+}
+
+button {
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    color: var(--creamy);
+    background-color: var(--peach);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input, textarea {
+    height: 50px;
+    padding-left: 20px;
+}
