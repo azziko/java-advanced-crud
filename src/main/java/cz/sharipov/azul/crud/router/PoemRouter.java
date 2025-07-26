@@ -12,13 +12,25 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 
+/**
+ * Rest API controller.
+ */
 @RestController
 @RequestMapping("/api/poems")
 public class PoemRouter {
 
+    /** 
+     * Service injection.
+     */
     @Autowired
     private PoemService poemService;
 
+    /**
+     * Add poem handler, restricted to admin role only.
+     * 
+     * @param poem
+     * @return Added poem.
+     */
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Poem> add(@RequestBody Poem poem) {
@@ -27,6 +39,12 @@ public class PoemRouter {
         return new ResponseEntity<>(addedPoem, HttpStatus.CREATED);
     }
 
+    /**
+     * Handler that get poem by its id.
+     * 
+     * @param id
+     * @return fetched poem.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Poem> getById(@PathVariable Long id) {
         Poem fetchedPoem = poemService.getPoem(id);
@@ -34,6 +52,14 @@ public class PoemRouter {
         return new ResponseEntity<>(fetchedPoem, HttpStatus.OK);
     }
 
+    /**
+     * Handler for updating a poem. Restricted to the admin role.
+     * 
+     * 
+     * @param id
+     * @param inputedPoem
+     * @return updated poem.
+     */
     @PatchMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Poem> update(@PathVariable long id, @RequestBody Poem inputedPoem) {
@@ -42,6 +68,12 @@ public class PoemRouter {
         return new ResponseEntity<>(updatedPoem, HttpStatus.OK);
     } 
 
+    /**
+     * Delete poem handler. Restricted to the admin role.
+     * 
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Poem> deletePoem(@PathVariable Long id) {
@@ -50,6 +82,14 @@ public class PoemRouter {
         return new ResponseEntity<>(deletedPoem, HttpStatus.OK);
     }
 
+    /**
+     * Search poem by title handler.
+     * 
+     * @param title
+     * @param page
+     * @param size
+     * @return page of the requested size or a page of size 5.
+     */
     @GetMapping("/search/title")
     public ResponseEntity<Page<Poem>> searchByTitle(
         @RequestParam String title,
@@ -62,6 +102,14 @@ public class PoemRouter {
         return new ResponseEntity<>(poemPage, HttpStatus.OK);
     }
 
+    /**
+     * Search poem by authoe handler. 
+     * 
+     * @param author
+     * @param page
+     * @param size
+     * @return page of the requested size or a page of size 5.
+     */
     @GetMapping("/search/author")
     public ResponseEntity<Page<Poem>> searchByAuhtor(
         @RequestParam String author,
@@ -74,6 +122,14 @@ public class PoemRouter {
         return new ResponseEntity<>(poemPage, HttpStatus.OK);
     }
 
+    /**
+     * Search poem by its genre handler.
+     * 
+     * @param genre
+     * @param page
+     * @param size
+     * @return page of the requested size or a page of size 5.
+     */
     @GetMapping("/search/genre")
     public ResponseEntity<Page<Poem>> searchByGenre(
         @RequestParam String genre,
@@ -86,6 +142,15 @@ public class PoemRouter {
         return new ResponseEntity<>(poemPage, HttpStatus.OK);
     }
 
+    /**
+     * Search poem by its content handler.
+     * Case insensetive.
+     * 
+     * @param content
+     * @param page
+     * @param size
+     * @return page of the requested size or a page of size 5.
+     */
     @GetMapping("/search/content")
     public ResponseEntity<Page<Poem>> searchByContent(
         @RequestParam String content,
