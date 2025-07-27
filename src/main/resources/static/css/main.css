@@ -144,12 +144,18 @@ label {
     color: rgb(135, 135, 135);
 }
 
-button {
+button, .edit-button {
     border-radius: 20px;
     width: 100px;
     height: 40px;
     color: var(--creamy);
     background-color: var(--peach);
+}
+
+.button-form {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
 }
 
 button:hover {

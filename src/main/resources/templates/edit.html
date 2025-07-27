@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Poems CRUD</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div class="container">
+        <div class="poem-main">
+            <div class="poem-form">
+                <form th:action="@{/admin/poem/{id}(id=${poem.id})}" th:object="${poem}" method="post">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" th:field="*{title}" value="${poem.title}" required />
+
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" th:field="*{author}" value="${poem.author}" required />
+
+                    <label for="genre">Genre:</label>
+                    <input type="text" id="genre" th:field="*{genre}" value="${poem.genre}" required />
+
+                    <label for="content">Content:</label>
+                    <textarea id="content" th:field="*{content}" value="${poem.contnet}" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
