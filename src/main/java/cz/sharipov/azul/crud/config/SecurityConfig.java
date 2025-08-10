@@ -15,10 +15,23 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
 
+
+/**
+ * Spring Security configuration for the application.
+ * 
+ * Defines user authentication details, password encoding,
+ * and HTTP security rules for different endpoints.
+ */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+    /**
+     * Configure the user store with a single admin account.
+     *
+     * @param encoder
+     * @return
+     */
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         UserDetails admin = User.withUsername("Admin")

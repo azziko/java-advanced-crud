@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 import lombok.Data;
 
+/**
+ * Entity representing a poem in the system.
+ */
 @Entity
 @Table(name = "poems")
 @Data
