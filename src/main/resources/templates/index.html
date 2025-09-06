@@ -7,6 +7,7 @@
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
     <div class="container">
+        <div th:replace="~{fragments/search :: searchForm('/')}"></div>
         <div th:each="poem : ${poems}" class="poem">
             <div class="poem-header">
                 <a href="#" th:href="@{/poem/{id}/(id=${poem.id})}"><h2 th:text="${poem.title} ?: 'No title'"></h2></a>

@@ -7,6 +7,7 @@
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
     <div class="container">
+        <div th:replace="~{fragments/search :: searchForm('/admin')}"></div>
         <div class="poem-form">
             <form th:action="@{/admin/poems}" th:object="${poem}" method="post">
                 <label for="title">Title:</label>

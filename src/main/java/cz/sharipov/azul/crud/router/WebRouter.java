@@ -29,8 +29,29 @@ public class WebRouter {
      * @return index page
      */
     @GetMapping("/")
-    public String publicIndex(Model model) {
-        model.addAttribute("poems", poemService.searchPoemsByContent("", 0, 100, null).getContent());
+    public String publicIndex(
+        @RequestParam(value = "search_by", required = false) String searchBy,
+        @RequestParam(value = "value", required = false) String value,
+        Model model) {
+
+        if (searchBy != null && value != null && !value.isEmpty()) {
+            switch (searchBy) {
+                case "genre":
+                    model.addAttribute("poems", poemService.searchPoemsByGenre(value, 0, 100, null).getContent());
+                    break;
+
+                case "title":
+                    model.addAttribute("poems", poemService.searchPoemsByTitle(value, 0, 100, null).getContent());
+                    break;
+
+                case "content":
+                default:
+                    model.addAttribute("poems", poemService.searchPoemsByContent(value, 0, 100, null).getContent());
+                }
+        } else {
+            model.addAttribute("poems", poemService.searchPoemsByContent("", 0, 100, null).getContent());
+        }
+        
         return "index";
     }
 
@@ -54,8 +75,29 @@ public class WebRouter {
      * @return admin page
      */
     @GetMapping("/admin")
-    public String adminHome(Model model) {
-        model.addAttribute("poems", poemService.searchPoemsByContent("", 0, 100, null).getContent());
+    public String adminHome(        
+        @RequestParam(value = "search_by", required = false) String searchBy,
+        @RequestParam(value = "value", required = false) String value,
+        Model model) {
+
+        if (searchBy != null && value != null && !value.isEmpty()) {
+            switch (searchBy) {
+                case "genre":
+                    model.addAttribute("poems", poemService.searchPoemsByGenre(value, 0, 100, null).getContent());
+                    break;
+
+                case "title":
+                    model.addAttribute("poems", poemService.searchPoemsByTitle(value, 0, 100, null).getContent());
+                    break;
+
+                case "content":
+                default:
+                    model.addAttribute("poems", poemService.searchPoemsByContent(value, 0, 100, null).getContent());
+                }
+        } else {
+            model.addAttribute("poems", poemService.searchPoemsByContent("", 0, 100, null).getContent());
+        }
+
         model.addAttribute("poem", new Poem());
         return "admin";
     }

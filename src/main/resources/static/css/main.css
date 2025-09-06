@@ -132,6 +132,15 @@ h1 {
     text-overflow: ellipsis;
 }
 
+/* Search form */
+.search-form select {
+    width: 100px;
+    height: 40px;
+    padding: 0px 20px;
+    color: var(--creamy);
+    background-color: var(--dark-beige);
+}
+
 /* Admin form */
 form {
     display: flex;

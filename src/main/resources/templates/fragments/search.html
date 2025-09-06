@@ -1,0 +1,22 @@
+<!-- fragments/search.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="searchForm(actionUrl)">
+    <form th:action="@{${actionUrl}}" method="get" class="search-form">
+        <label for="search_by">Search by:</label>
+        <select name="search_by" id="search_by">
+            <option value="genre" th:selected="${param.search_by == 'genre'}">Genre</option>
+            <option value="title" th:selected="${param.search_by == 'title'}">Title</option>
+            <option value="content" th:selected="${param.search_by == 'content'}">Content</option>
+        </select>
+
+        <input type="text" name="value" id="value"
+               placeholder="Value here"
+               th:value="${param.value}" required />
+
+        <button type="submit">Search</button>
+    </form>
+</div>
+</body>
+</html>
