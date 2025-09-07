@@ -1,4 +1,4 @@
-# CRUD as specified in the technical desccription for Azul
+# Simple REST-API with UI
 - [Set Up](#set-up)
 - [Auth](#auth)
 - [Database](#database)
@@ -19,7 +19,7 @@ To implement CRUD I used standard Spring boot package that includes the followin
 To restrict access to end-points that are not GET, I configured Spring Security Config.
 
 ## Database
-For the testing purposes, I installed MySQL Workbench and MySQL Community server to be able to run and test the queries. As for the scheme, I described the Books table that would store poems.
+For the testing purposes, I installed MySQL Workbench and MySQL Community server to be able to run and test the queries. As for the scheme, I described the Poems table that would store poems.
 
 ## UI
 To see the UI, after running the project, open localhost in any browser on port 8080.
