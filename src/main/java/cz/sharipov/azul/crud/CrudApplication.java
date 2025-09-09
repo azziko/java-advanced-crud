@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+/**
+ * Starting point of the application
+ */
 @EnableAutoConfiguration
 @EnableJpaRepositories("cz.sharipov.azul.crud.repository")
 @SpringBootApplication()

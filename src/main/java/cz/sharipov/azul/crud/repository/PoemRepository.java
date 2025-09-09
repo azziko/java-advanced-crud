@@ -7,6 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+/**
+ * Repository interface to manege Poem entities
+ * 
+ * Provides CRUD operation support and custom queries for 
+ * searching the DB
+ */
 @Repository
 public interface PoemRepository extends JpaRepository<Poem, Long> {
    @Query(value = "SELECT * FROM poems WHERE LOWER(title) LIKE LOWER(CONCAT('%', ?1, '%'))", nativeQuery = true)

@@ -42,6 +42,15 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(admin);
     }
 
+    /**
+     * Configures security filter chain for the app
+     * 
+     * Sets what endpoints need authorization check
+     * 
+     * @param http
+     * @return configured chain
+     * @throws Exception
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -60,6 +69,11 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * Provides a password encoder for encoding and verifying a password
+     * 
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
